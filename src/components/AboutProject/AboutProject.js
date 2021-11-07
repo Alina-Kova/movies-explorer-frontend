@@ -2,10 +2,9 @@ import React from "react";
 import './AboutProject.css';
 import '../Main/Main.css'
 
-export const AboutProject = (props) => {
-  const { aboutProject } = props;
+export const AboutProject = () => {
   return (
-    <section ref={aboutProject} className="about-project">
+    <section className="about-project" id="about-project">
       <h2 className="main__title">О проекте</h2>
       <div className="about-project__columns">
         <div className="about-project__column">

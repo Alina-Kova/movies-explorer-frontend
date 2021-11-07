@@ -1,20 +1,4 @@
 @import url(./vendor/normalize.css);
 @import url(./vendor/fonts.css);
-
-.page {
-  min-width: 320px;
-  margin: 0 auto;
-  padding-top: 28px;
-  padding-bottom: 36px;
-  font-family: 'Inter', 'Arial', sans-serif;
-  font-style: normal;
-  background-color: #ffffff;
-  -webkit-font-smoothing: antialiased;
-}
-
-@media screen and (min-width: 1280px) {
-  .page {
-      padding-top: 45px;
-      padding-bottom: 60px;
-  }
-}
+@import url(./blocks/page.css);
+/* @import url(./components/Main/Main.css); */

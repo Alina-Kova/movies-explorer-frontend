@@ -1,7 +1,7 @@
 import React from 'react';
 import './Navigation.css';
 import { Link, NavLink } from 'react-router-dom';
-import { Hamburger } from '../Hamburger/Hamburger';
+import { Menu } from '../Menu/Menu';
 
 export const Navigation = (props) => {
 	return (
@@ -15,7 +15,7 @@ export const Navigation = (props) => {
 					<Link to="/profile" className="navigation__link navigation__link_with_signin">Аккаунт</Link>
 					<div className="navigation__img"></div>
 				</div>
-				<Hamburger class="header__hamburger header__hamburger_with_signin" onHamburgerOpen={props.onHamburgerOpen} />
+				<Menu class="header__hamburger header__hamburger_with_signin" onHamburgerOpen={props.onHamburgerOpen} />
 			</nav>}
 			{!props.isAuth && <nav className="navigation navigation_without_signin" >
 				<div className="navigation__wrapper navigation__wrapper_without_signin">

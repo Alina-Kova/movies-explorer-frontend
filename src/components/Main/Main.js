@@ -9,12 +9,12 @@ export const Main = (props) => {
 
 	const { aboutProject, techs, aboutMe } = props;
 	return (
-	  <>
-		<Promo />
-		<AboutProject aboutProject={aboutProject} />
-		<Techs techs={techs} />
-		<AboutMe aboutMe={aboutMe} />
-		<Portfolio />
-	  </>
+		<>
+			<Promo />
+			<AboutProject aboutProject={aboutProject} />
+			<Techs techs={techs} />
+			<AboutMe aboutMe={aboutMe} />
+			<Portfolio />
+		</>
 	);
 }

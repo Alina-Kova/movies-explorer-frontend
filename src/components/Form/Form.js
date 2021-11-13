@@ -4,12 +4,12 @@ import './Form.css';
 
 export const Form = (props) => {
 
-	React.useEffect(() => {
-		props.onIsHidden(false)
-		return () => {
-			props.onIsHidden(true)
-		}
-	}, [])
+	// React.useEffect(() => {
+	// 	props.onIsHidden(false)
+	// 	return () => {
+	// 		props.onIsHidden(true)
+	// 	}
+	// }, [props])
 
 	return (
 		<div className="form">

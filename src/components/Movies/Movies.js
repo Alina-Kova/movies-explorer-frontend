@@ -5,8 +5,10 @@ import { SearchForm } from '../SearchForm/SearchForm';
 export const Movies = () => {
 	return (
 		<>
-			<SearchForm />
-			<MoviesCardList />
-		</>
+		<div className="movies">
+		  <SearchForm />
+		  <MoviesCardList />
+		</div>
+	  </>
 	);
 }

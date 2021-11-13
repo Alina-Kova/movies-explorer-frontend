@@ -1,29 +1,64 @@
 import React from 'react';
 import { Navigation } from '../Navigation/Navigation';
 import { Link } from 'react-router-dom';
+import { AuthorizationLink } from "../AuthorizationLink/AuthorizationLink";
 import './Header.css';
 
 export const Header = (props) => {
+  const { openMenu, currentPath, loggedIn } = props;
+  const isItLanding = currentPath === "/";
 
-  const [isHamburgerOpen, setIsHamburgerOpen] = React.useState(false);
+  const [burgerOn, setBurgerOn] = React.useState(false);
 
-  function handleHamburgerOpen() {
-    setIsHamburgerOpen(true)
+  React.useEffect(() => {
+    const currentHideNav = window.innerWidth <= 768;
+    if (currentHideNav) {
+      setBurgerOn(true);
+    }
+  }, []);
+
+  function resize(width) {
+    const currentHideNav = window.innerWidth <= width;
+    if (currentHideNav) {
+      setBurgerOn(true);
+    } else {
+      setBurgerOn(false);
+    }
   }
 
-  function handleHamburgerClose() {
-    setIsHamburgerOpen(false)
-  }
+  window.addEventListener("resize", () => resize(768));
+
   return (
-    <header className={`header header_color_landing ${props.moviesBackground}`}>
-      <Link to="/" className="logo"/>
-      <div className="header__wrapper">
-        <Navigation
-          isAuth={props.isAuth}
-          isOpenHamburger={isHamburgerOpen}
-          onHamburgerOpen={handleHamburgerOpen}
-          onHamburgerClose={handleHamburgerClose} />
-      </div>
+    <header className={`header ${isItLanding && "header_color_landing"}`}>
+      <Link to="/">
+        <div className="header__logo" />
+      </Link>
+
+      {loggedIn ? (
+        <>
+          <Navigation burgerOn={burgerOn} />
+          <div
+            className={`header__authorization ${
+              burgerOn && "header__authorization_disable"
+              }`}
+          >
+            <AuthorizationLink />
+          </div>
+          <div
+            onClick={openMenu}
+            className={`header__burger ${burgerOn && "header__burger_active"}`}
+          />
+        </>
+      ) : (
+          <div className="header__authorization">
+            <Link to="/sign-up" className="header__reg-link">
+              Регистрация
+            </Link>
+            <Link to="/sign-in" className="header__log-link">
+              Войти
+            </Link>
+          </div>
+        )}
     </header>
   );
 }

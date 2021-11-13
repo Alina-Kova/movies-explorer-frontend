@@ -88,7 +88,7 @@ import { Login } from "../Login/Login";
 import { NotFound } from "../NotFound/NotFound";
 import { Footer } from "../Footer/Footer";
 
-// import Menu from "./menu/Menu";
+import { Menu } from "../Menu/Menu";
 import "./App.css";
 // import Preloader from "./preloader/Preloader";
 
@@ -118,13 +118,14 @@ function App(props) {
     }
   };
 
-  // const [menuIsActivated, setMenuIsActivated] = React.useState("");
-  // function openMenu() {
-  //   setMenuIsActivated(true);
-  // }
-  // function closeMenu() {
-  //   setMenuIsActivated("");
-  // }
+  const [menuIsActivated, setMenuIsActivated] = React.useState("");
+  function openMenu() {
+    setMenuIsActivated(true);
+  }
+  function closeMenu() {
+    setMenuIsActivated("");
+  }
+
   function logout() {
     setLoggedIn(false);
   }
@@ -144,24 +145,19 @@ function App(props) {
       {/* {isLoading && <Preloader />} */}
       {headerRender && (
         <Header
-          // openMenu={openMenu}
+          openMenu={openMenu}
           currentPath={currentPath}
           loggedIn={loggedIn}
         />
       )}
       <Switch>
         <ProtectedRoute path="/movies" loggedIn={loggedIn} component={Movies} />
-        {/* <Movies path="/movies" loggedIn={loggedIn} /> */}
 
         <ProtectedRoute
           path="/saved-movies"
           loggedIn={loggedIn}
           component={SavedMovies}
         />
-        {/* <SavedMovies
-          path="/saved-movies"
-          loggedIn={loggedIn}
-        /> */}
 
         <ProtectedRoute
           path="/profile"
@@ -169,11 +165,6 @@ function App(props) {
           component={Profile}
           logout={logout}
         />
-        {/* <Profile
-          path="/profile"
-          loggedIn={loggedIn}
-          logout={logout}
-        /> */}
 
         <Route path="/sign-up">
           <Register
@@ -201,7 +192,7 @@ function App(props) {
         </Route>
       </Switch>
       {footerRender && <Footer />}
-      {/* <Menu menuIsActivated={menuIsActivated} closeMenu={closeMenu} /> */}
+      <Menu menuIsActivated={menuIsActivated} closeMenu={closeMenu} openMenu={openMenu} />
     </div>
   );
 }

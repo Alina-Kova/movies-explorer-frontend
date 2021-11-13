@@ -1,31 +1,3 @@
-// import React from 'react';
-// import './Portfolio.css';
-// import image from '../../images/arrow.svg';
-
-// export const Portfolio = () => {
-// 	return (
-// 		<section className="portfolio">
-// 			<h2 className="portfolio__title">Портфолио</h2>
-// 			<nav className="portfolio__group">
-// 				<ul className="portfolio__list">
-// 					<li className="portfolio__item">
-// 						<p className="portfolio__headline">Статичный сайт</p>
-// 						<a className="portfolio__link" rel="noreferrer" target="_blank" href="https://alina-kova.github.io/how-to-learn/"><img className="portfolio__image" src={image} alt="Ссылка" /></a>
-// 					</li>
-// 					<li className="portfolio__item">
-// 						<p className="portfolio__headline">Адаптивный сайт</p>
-// 						<a className="portfolio__link" rel="noreferrer" target="_blank" href="https://alina-kova.github.io/russian-travel/"><img className="portfolio__image" src={image} alt="Ссылка" /></a>
-// 					</li>
-// 					<li className="portfolio__item">
-// 						<p className="portfolio__headline">Одностраничное приложение</p>
-// 						<a className="portfolio__link" rel="noreferrer" target="_blank" href="https://alina.mesto.nomoredomains.monster/"><img className="portfolio__image" src={image} alt="Ссылка" /></a>
-// 					</li>
-// 				</ul>
-// 			</nav>
-// 		</section>
-// 	);
-// }
-
 import React from "react";
 import './Portfolio.css';
 

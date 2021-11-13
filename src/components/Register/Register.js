@@ -1,40 +1,61 @@
-import React from 'react';
-import { Form } from '../Form/Form';
-import { Input } from '../Input/Input';
+import React from "react";
+// !!!
+// import { useFormWithValidation } from "../../utils/useFormWithValidation";
+// !!!
+import { AuthorizationForm } from "../AuthorizationForm/AuthorizationForm";
+import { Input } from "../Input/Input";
+import { Authorization } from "../Authorization/Authorization";
 
 export const Register = (props) => {
-	return (
-		<Form
-			title="Добро пожаловать!"
-			typeLink="Войти"
-			to="/signin"
-			typeButton="Зарегистрироваться"
-			check="Уже зарегистрированы?"
-			onIsHidden={props.onIsHidden}>
-			<div className="form__wrapper">
-				<Input
-					className="form__input"
-					type="text"
-					minLength="2"
-					maxLength="30" />
-				<label className="form__label">Имя</label>
-			</div>
-			<div className="form__wrapper">
-				<Input
-					className="form__input"
-					type="email"
-					minLength="2"
-					maxLength="30" />
-				<label className="form__label">Email</label>
-			</div>
-			<div className="form__wrapper">
-				<Input
-					className="form__input"
-					type="password"
-					minLength="4"
-					maxLength="16" />
-				<label className="form__label">Пароль</label>
-			</div>
-		</Form>
-	);
+//   const { handleLogin } = props;
+//   const nameField = useFormWithValidation();
+//   const emailField = useFormWithValidation();
+//   const passwordField = useFormWithValidation();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // handleLogin(nameField.value, emailField.value, passwordField.value);
+  };
+
+  return (
+    <Authorization
+      authorizationTitle="Добро пожаловать!"
+      linkHighlightedText="Войти"
+      linkText="Уже зарегистрированы?"
+      linkAddress="/sign-in"
+      hasLogo={true}
+    >
+    <AuthorizationForm
+        formName="registration"
+        submitButtonText="Зарегистрироваться"
+        // isFormValid={nameField.isValid && emailField.isValid && passwordField.isValid}
+        handleSubmit={handleSubmit}
+    >
+    <Input
+        // field={nameField}
+        labelName="Имя"
+        minlength="2"
+        inputName="name"
+        type="text"
+        required="true"
+    />
+    <Input
+        // field={emailField}
+        labelName="E-mail"
+        minlength="2"
+        inputName="email"
+        type="text"
+        required="true"
+    />
+    <Input
+        // field={passwordField}
+        labelName="Пароль"
+        minlength="2"
+        inputName="password"
+        type="password"
+        required="true"
+    />
+    </AuthorizationForm>
+    </Authorization>
+  );
 }

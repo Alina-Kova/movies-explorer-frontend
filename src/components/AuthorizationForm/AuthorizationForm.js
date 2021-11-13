@@ -1,12 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import './AuthorizationForm.css';
 
-export const AuthorizationForm = () => {
-    return (
-        <Link to="/profile" className="authorization-link">
-            Аккаунт
-            <div className="authorization-link__icon" />
-        </Link>
-    );
+export const AuthorizationForm = (props) => {
+  const { handleSubmit, children, isFormValid, submitButtonText } = props;
+
+  return (
+    <form className="authorization-form" onSubmit={handleSubmit}>
+      <fieldset className="authorization-form__fieldset">{children}</fieldset>
+      <button type="submit" className="authorization-form__button" disabled={!isFormValid}>
+        {submitButtonText}
+      </button>
+    </form>
+  );
 }

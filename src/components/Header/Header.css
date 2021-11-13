@@ -6,6 +6,7 @@
   box-sizing: border-box;
   padding: 18px 70px;
   background-color: #202020;
+  font-family: Inter;
 }
 
 @media (max-width: 768px) {

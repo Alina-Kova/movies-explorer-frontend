@@ -7,7 +7,6 @@ import './Header.css';
 export const Header = (props) => {
   const { openMenu, currentPath, loggedIn } = props;
   const isItLanding = currentPath === "/";
-
   const [burgerOn, setBurgerOn] = React.useState(false);
 
   React.useEffect(() => {
@@ -30,33 +29,19 @@ export const Header = (props) => {
 
   return (
     <header className={`header ${isItLanding && "header_color_landing"}`}>
-      <Link to="/">
-        <div className="header__logo" />
-      </Link>
-
+      <Link to="/"><div className="header__logo" /></Link>
       {loggedIn ? (
         <>
           <Navigation burgerOn={burgerOn} />
-          <div
-            className={`header__authorization ${
-              burgerOn && "header__authorization_disable"
-              }`}
-          >
+          <div className={`header__authorization ${burgerOn && "header__authorization_disable"}`}>
             <AuthorizationLink />
           </div>
-          <div
-            onClick={openMenu}
-            className={`header__burger ${burgerOn && "header__burger_active"}`}
-          />
+          <div onClick={openMenu} className={`header__burger ${burgerOn && "header__burger_active"}`}/>
         </>
       ) : (
           <div className="header__authorization">
-            <Link to="/sign-up" className="header__reg-link">
-              Регистрация
-            </Link>
-            <Link to="/sign-in" className="header__log-link">
-              Войти
-            </Link>
+            <Link to="/sign-up" className="header__reg-link">Регистрация</Link>
+            <Link to="/sign-in" className="header__log-link">Войти</Link>
           </div>
         )}
     </header>

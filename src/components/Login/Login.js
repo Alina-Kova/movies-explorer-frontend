@@ -1,34 +1,52 @@
-import React from 'react';
-import { Form } from '../Form/Form';
-import { Input } from '../Input/Input';
-import './Login.css';
+import React from "react";
+// !!!
+// import { useFormWithValidation } from "../../utils/useFormWithValidation";
+// !!!
+import { AuthorizationForm } from "../AuthorizationForm/AuthorizationForm";
+import { Input } from "../Input/Input";
+import { Authorization } from "../Authorization/Authorization";
 
 export const Login = (props) => {
+	// const { handleLogin } = props;
+	// const emailField = useFormWithValidation();
+	// const passwordField = useFormWithValidation();
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		// handleLogin(emailField.value, passwordField.value);
+	};
 
 	return (
-		<Form
-			title="Рады видеть!"
-			typeLink="Регистрация"
-			to="/signup"
-			typeButton="Войти"
-			check="Еще не зарегистрированы?"
-			onIsHidden={props.onIsHidden}>
-			<div className="form__wrapper">
-				<Input
-					className="form__input"
-					type="email"
-					minLength="2"
-					maxLength="30" />
-				<label className="form__label">Email</label>
-			</div>
-			<div className="form__wrapper form__wrapper_for_login">
-				<Input
-					className="form__input"
-					type="password"
-					minLength="4"
-					maxLength="16" />
-				<label className="form__label">Пароль</label>
-			</div>
-		</Form>
+		<Authorization
+			authorizationTitle="Рады видеть!"
+			linkHighlightedText="Регистрация"
+			linkText="Ещё не зарегистрированы?"
+			linkAddress="/sign-up"
+			hasLogo={true}
+		>
+		<AuthorizationForm
+			formName="login"
+			submitButtonText="Войти"
+			// isFormValid={emailField.isValid && passwordField.isValid}
+			handleSubmit={handleSubmit}
+		>
+		<Input
+			// field={emailField}
+			labelName="E-mail"
+			minlength="2"
+			inputName="email"
+			type="text"
+			required="true"
+		/>
+		<Input
+			// field={passwordField}
+			labelName="Пароль"
+			minlength="2"
+			inputName="password"
+			type="password"
+			required="true"
+			/>
+		</AuthorizationForm>
+		</Authorization>
 	);
 }

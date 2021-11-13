@@ -1,43 +1,19 @@
-import React from 'react';
+import React from "react";
+import { NavLink } from "react-router-dom";
 import './Navigation.css';
-import { Link, NavLink } from 'react-router-dom';
-import { Menu } from '../Menu/Menu';
 
 export const Navigation = (props) => {
-	return (
-		<>
-			{props.isAuth && <nav className="navigation">
-				<div className="navigation__wrapper navigation__wrapper_hidden">
-					<Link to="/movies" className="navigation__link">Фильмы</Link>
-					<Link to="/saved-movies" className="navigation__link navigation__link_active">Сохранённые фильмы</Link>
-				</div>
-				<div className="navigation__wrapper navigation__wrapper_hidden">
-					<Link to="/profile" className="navigation__link navigation__link_with_signin">Аккаунт</Link>
-					<div className="navigation__img"></div>
-				</div>
-				<Menu class="header__hamburger header__hamburger_with_signin" onHamburgerOpen={props.onHamburgerOpen} />
-			</nav>}
-			{!props.isAuth && <nav className="navigation navigation_without_signin" >
-				<div className="navigation__wrapper navigation__wrapper_without_signin">
-					<Link to="/signup" className="navigation__link">Регистрация</Link>
-					<Link to="/signin" className="navigation__link navigation__link_type_button">Войти</Link>
-				</div>
-			</nav>}
+  const { burgerOn } = props;
 
-			<div className={`popup ${props.isOpenHamburger && "popup_opened"}`}>
-				<div className="popup__container">
-					<div className="popup__wrapper">
-						<NavLink to="/" className="popup__link" exact activeClassName="popup__link_active">Главная</NavLink>
-						<NavLink to="/movies" className="popup__link" exact activeClassName="popup__link_active">Фильмы</NavLink>
-						<NavLink to="/saved-movies" className="popup__link" exact activeClassName="popup__link_active">Сохранённые фильмы</NavLink>
-					</div>
-					<div className="popup__wrapper popup__wrapper_aligning">
-						<Link to="/profile" className="popup__link">Аккаунт</Link>
-						<div className="popup__img"></div>
-					</div>
-					<button className="popup__button" onClick={props.onHamburgerClose}></button>
-				</div>
-			</div>
-		</>
-	);
+  return (
+    <>
+      <div className={`navigation ${burgerOn && "navigation_disable"}`}>
+        {burgerOn && (
+		  <NavLink to="/" activeClassName="navigation__link_active" className="navigation__link">Главная</NavLink>
+        )}
+        <NavLink to="/movies" activeClassName="navigation__link_active" className="navigation__link">Фильмы</NavLink>
+        <NavLink to="/saved-movies" activeClassName="navigation__link_active" className="navigation__link">Сохранённые фильмы</NavLink>
+      </div>
+    </>
+  );
 }

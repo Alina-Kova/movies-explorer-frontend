@@ -36,12 +36,12 @@ export const Header = (props) => {
           <div className={`header__authorization ${burgerOn && "header__authorization_disable"}`}>
             <AuthorizationLink />
           </div>
-          <div onClick={openMenu} className={`header__burger ${burgerOn && "header__burger_active"}`}/>
+          <div onClick={openMenu} className={`header__burger ${burgerOn && "header__burger_active"}`} />
         </>
       ) : (
           <div className="header__authorization">
-            <Link to="/sign-up" className="header__reg-link">Регистрация</Link>
-            <Link to="/sign-in" className="header__log-link">Войти</Link>
+            <Link to="/signup" className="header__reg-link">Регистрация</Link>
+            <Link to="/signin" className="header__log-link">Войти</Link>
           </div>
         )}
     </header>

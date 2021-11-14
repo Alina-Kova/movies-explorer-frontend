@@ -1,79 +1,3 @@
-// import React from "react";
-// import { Route, Routes } from 'react-router-dom';
-// import './App.css';
-// import { Header } from "../Header/Header";
-// import { Main } from "../Main/Main";
-// // import { Movies } from "../Movies/Movies";
-// // import { SavedMovies } from "../SavedMovies/SavedMovies";
-// // import { Profile } from "../Profile/Profile";
-// // import { Register } from "../Register/Register";
-// // import { Login } from "../Login/Login";
-// // import { NotFound } from "../NotFound/NotFound";
-// import { Footer } from "../Footer/Footer";
-
-
-// function App() {
-
-//   const [isAuth, setIsAuth] = React.useState(true);
-//   const [isSavedMovies] = React.useState(true);
-//   const [isHidden, setIsHidden] = React.useState(true);
-//   const [isHiddenFooter, setIsHiddenFooter] = React.useState(true);
-//   const [moviesBackground, setMoviesBackground] = React.useState('header_active');
-//   const getMoviesUrl = window.location.pathname;
-
-//   function handleLink(boolean) {
-//     setIsAuth(boolean);
-//   }
-
-//   React.useEffect(() => {
-//     if (getMoviesUrl ==="/") {
-//       setMoviesBackground('');
-//     }
-//   }, [getMoviesUrl]);
-
-
-//   return (
-//     <div className="app">
-//       {isHidden && <Header isAuth={isAuth} moviesBackground={moviesBackground}/>}
-//       {/* {isHidden && <Header moviesBackground={moviesBackground}/>} */}
-//       <Routes>
-//         <Route exact path="/">
-//           <Main setAuth={handleLink} />
-//           {/* <Main /> */}
-//         </Route>
-//         {/* <Route path="/movies">
-//           <Movies />
-//         </Route> */}
-//         {/* <Route path="/saved-movies">
-//           <SavedMovies isSavedMovies={isSavedMovies} />
-//           {/* <SavedMovies />
-//         </Route> */} 
-//         {/* <Route path="/profile">
-//           <Profile onIsHiddenFooter={setIsHiddenFooter} />
-//           {/* <Profile /> */}
-//         {/* </Route> */} 
-//         {/* <Route path="/signup">
-//           <Register onIsHidden={setIsHidden} />
-//           {/* <Register /> */}
-//         {/* </Route> */}
-//         {/* <Route path="/signin">
-//           <Login onIsHidden={setIsHidden} /> */}
-//           {/* <Login /> */}
-//         {/* </Route> */}
-//         {/* <Route path="*">
-//           <NotFound onIsHidden={setIsHidden} /> */}
-//           {/* <NotFound /> */}
-//         {/* </Route> */}
-//       </Routes>
-//       {isHidden && isHiddenFooter && <Footer />}
-//       {/* <Footer /> */}
-//     </div>
-//   );
-// }
-
-// export default App;
-
-
 import React from "react";
 
 import { Route, Switch, useLocation } from "react-router-dom";
@@ -87,23 +11,17 @@ import { Register } from "../Register/Register";
 import { Login } from "../Login/Login";
 import { NotFound } from "../NotFound/NotFound";
 import { Footer } from "../Footer/Footer";
-
 import { Menu } from "../Menu/Menu";
 import "./App.css";
-// import Preloader from "./preloader/Preloader";
 
-function App(props) {
+function App() {
   const location = useLocation();
   const currentPath = location.pathname;
 
   // Имитирует состояние авторизации пользователя
   const [loggedIn, setLoggedIn] = React.useState(true);
 
-  // Имитирует состояние загрузки
-  // const [isLoading, setIsLoading] = React.useState(false);
-  // const [isLoading] = React.useState(false);
-
-  // записываем объект, возвращаемый хуком, в переменную
+  // объект, возвращаемый хуком, в переменную
   const aboutProject = React.useRef();
   const techs = React.useRef();
   const aboutMe = React.useRef();
@@ -142,7 +60,6 @@ function App(props) {
 
   return (
     <div className="App">
-      {/* {isLoading && <Preloader />} */}
       {headerRender && (
         <Header
           openMenu={openMenu}
@@ -153,38 +70,24 @@ function App(props) {
       <Switch>
         <ProtectedRoute path="/movies" loggedIn={loggedIn} component={Movies} />
 
-        <ProtectedRoute
-          path="/saved-movies"
-          loggedIn={loggedIn}
-          component={SavedMovies}
-        />
+        <ProtectedRoute path="/saved-movies" loggedIn={loggedIn} component={SavedMovies} />
 
-        <ProtectedRoute
-          path="/profile"
-          loggedIn={loggedIn}
-          component={Profile}
-          logout={logout}
-        />
+        <ProtectedRoute path="/profile" loggedIn={loggedIn} component={Profile} logout={logout} />
 
-        <Route path="/sign-up">
+        <Route path="/signup">
           <Register
           // handleRegister={handleRegister}
           />
         </Route>
 
-        <Route path="/sign-in">
+        <Route path="/signin">
           <Login
           // handleLogin={handleLogin}
           />
         </Route>
 
         <Route exact path="/">
-          <Main
-            aboutProject={aboutProject}
-            techs={techs}
-            aboutMe={aboutMe}
-            executeScroll={executeScroll}
-          />
+          <Main aboutProject={aboutProject} techs={techs} aboutMe={aboutMe} executeScroll={executeScroll} />
         </Route>
 
         <Route path="*">

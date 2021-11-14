@@ -7,7 +7,7 @@ export const Portfolio = () => {
       <h3 className="portfolio__title">Портфолио</h3>
       <ul className="portfolio__list">
         <li className="portfolio__item">
-          <a
+          <a 
             href="https://alina-kova.github.io/how-to-learn/"
             target="_blank"
             rel="noopener noreferrer"

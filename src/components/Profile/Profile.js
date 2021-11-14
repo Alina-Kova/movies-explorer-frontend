@@ -49,20 +49,15 @@ export const Profile = (props) => {
 						<span className="profile__decor-line"></span>
 						<label className="profile__field">
 							<span className="profile__label-name">E-mail</span>
-							<input className={`profile__input`} disabled={!editingIsOn} value={email || userEmail || ""} onChange={handleChangeEmail}/>
+							<input className={`profile__input`} disabled={!editingIsOn} value={email || userEmail || ""} onChange={handleChangeEmail} />
 						</label>
 					</fieldset>
-					{editingIsOn && (
-						<>
-							<span className="profile__error">При обновлении профиля произошла ошибка.</span>
-							<button type="submit" className="profile__button profile__button_type_save">Сохранить</button>
-						</>
-					)}
+
 				</form>
 				{!editingIsOn && (
 					<>
 						<button className="profile__button  profile__button_type_edit" onClick={enableEditing} type="button">Редактировать</button>
-						<Link className="profile__button profile__button_type_exit" to="/sign-in" onClick={logout}>Выйти из аккаунта</Link>
+						<Link className="profile__button profile__button_type_exit" to="/signin" onClick={logout}>Выйти из аккаунта</Link>
 					</>
 				)}
 			</div>

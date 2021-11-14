@@ -1,19 +1,18 @@
 import React from "react";
-// !!!
-// import { useFormWithValidation } from "../../utils/useFormWithValidation";
-// !!!
+import { FormValidation } from "../../utils/FormValidation";
 import { AuthorizationForm } from "../AuthorizationForm/AuthorizationForm";
 import { Input } from "../Input/Input";
 import { Authorization } from "../Authorization/Authorization";
 
 export const Login = (props) => {
-	// const { handleLogin } = props;
-	// const emailField = useFormWithValidation();
-	// const passwordField = useFormWithValidation();
+	const { handleLogin } = props;
+
+	const emailField = FormValidation();
+	const passwordField = FormValidation();
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		// handleLogin(emailField.value, passwordField.value);
+		handleLogin(emailField.value, passwordField.value);
 	};
 
 	return (
@@ -21,32 +20,33 @@ export const Login = (props) => {
 			authorizationTitle="Рады видеть!"
 			linkHighlightedText="Регистрация"
 			linkText="Ещё не зарегистрированы?"
-			linkAddress="/sign-up"
+			linkAddress="/signup"
 			hasLogo={true}
 		>
-		<AuthorizationForm
-			formName="login"
-			submitButtonText="Войти"
-			// isFormValid={emailField.isValid && passwordField.isValid}
-			handleSubmit={handleSubmit}
-		>
-		<Input
-			// field={emailField}
-			labelName="E-mail"
-			minlength="2"
-			inputName="email"
-			type="text"
-			required="true"
-		/>
-		<Input
-			// field={passwordField}
-			labelName="Пароль"
-			minlength="2"
-			inputName="password"
-			type="password"
-			required="true"
-			/>
-		</AuthorizationForm>
+			<AuthorizationForm
+				formName="login"
+				submitButtonText="Войти"
+				isFormValid={emailField.isValid && passwordField.isValid}
+				handleSubmit={handleSubmit}
+			>
+				<Input
+					field={emailField}
+					labelName="E-mail"
+					minlength="2"
+					inputName="email"
+					type="text"
+					required="true"
+				/>
+
+				<Input
+					field={passwordField}
+					labelName="Пароль"
+					minlength="2"
+					inputName="password"
+					type="password"
+					required="true"
+				/>
+			</AuthorizationForm>
 		</Authorization>
 	);
 }

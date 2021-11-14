@@ -9,7 +9,7 @@ export const Navigation = (props) => {
     <>
       <div className={`navigation ${burgerOn && "navigation_disable"}`}>
         {burgerOn && (
-		  <NavLink to="/" activeClassName="navigation__link_active" className="navigation__link">Главная</NavLink>
+          <NavLink to="/" activeClassName="navigation__link_active" className="navigation__link">Главная</NavLink>
         )}
         <NavLink to="/movies" activeClassName="navigation__link_active" className="navigation__link">Фильмы</NavLink>
         <NavLink to="/saved-movies" activeClassName="navigation__link_active" className="navigation__link">Сохранённые фильмы</NavLink>

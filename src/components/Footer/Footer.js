@@ -9,9 +9,36 @@ export const Footer = () => {
 				<p className="footer__author">&copy; 2021</p>
 				<nav>
 					<ul className="footer__links">
-						<li className="footer__wrapper-link"><a href="https://praktikum.yandex.ru" className="footer__link">Яндекс.Практикум</a></li>
-						<li className="footer__wrapper-link"><a href="https://github.com/Alina-Kova" className="footer__link">Github</a></li>
-						<li className="footer__wrapper-link"><a href="https://www.facebook.com/alina.vainer.1" className="footer__link">Facebook</a></li>
+						<li className="footer__wrapper-link">
+							<a
+								href="https://praktikum.yandex.ru/"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="footer__link"
+							>
+								Яндекс.Практикум
+								</a>
+						</li>
+						<li className="footer__wrapper-link">
+							<a
+								href="https://github.com/Alina-Kova/"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="footer__link"
+							>
+								Github
+								</a>
+						</li>
+						<li className="footer__wrapper-link">
+							<a
+								href="https://www.facebook.com/alina.vainer.1/"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="footer__link"
+							>
+								Facebook
+								</a>
+						</li>
 					</ul>
 				</nav>
 			</div>

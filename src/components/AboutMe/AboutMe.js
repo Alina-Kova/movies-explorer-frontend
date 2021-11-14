@@ -19,18 +19,28 @@ export const AboutMe = (props) => {
           </p>
           <ul className="aboutme__links">
             <li>
-              <a href="https://facebook.com/alina.vainer.1" className="aboutme__link">
+              <a
+                href="https://facebook.com/alina.vainer.1/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="aboutme__link"
+              >
                 Facebook
               </a>
             </li>
             <li>
-              <a href="https://github.com/Alina-Kova" className="aboutme__link">
+              <a
+                href="https://github.com/Alina-Kova/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="aboutme__link"
+              >
                 Github
               </a>
             </li>
           </ul>
         </div>
-        <img className="aboutme__image" alt="Фотография студента" src={image} />
+        <img className="aboutme__image" alt="фото Алины Котиковой" src={image} />
       </div>
     </section>
   );

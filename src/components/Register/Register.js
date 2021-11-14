@@ -1,20 +1,18 @@
 import React from "react";
-// !!!
-// import { useFormWithValidation } from "../../utils/useFormWithValidation";
-// !!!
+import { FormValidation } from "../../utils/FormValidation";
 import { AuthorizationForm } from "../AuthorizationForm/AuthorizationForm";
 import { Input } from "../Input/Input";
 import { Authorization } from "../Authorization/Authorization";
 
 export const Register = (props) => {
-//   const { handleLogin } = props;
-//   const nameField = useFormWithValidation();
-//   const emailField = useFormWithValidation();
-//   const passwordField = useFormWithValidation();
+  const { handleLogin } = props;
+  const nameField = FormValidation();
+  const emailField = FormValidation();
+  const passwordField = FormValidation();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // handleLogin(nameField.value, emailField.value, passwordField.value);
+    handleLogin(nameField.value, emailField.value, passwordField.value);
   };
 
   return (
@@ -22,40 +20,40 @@ export const Register = (props) => {
       authorizationTitle="Добро пожаловать!"
       linkHighlightedText="Войти"
       linkText="Уже зарегистрированы?"
-      linkAddress="/sign-in"
+      linkAddress="/signin"
       hasLogo={true}
     >
-    <AuthorizationForm
+      <AuthorizationForm
         formName="registration"
         submitButtonText="Зарегистрироваться"
-        // isFormValid={nameField.isValid && emailField.isValid && passwordField.isValid}
+        isFormValid={nameField.isValid && emailField.isValid && passwordField.isValid}
         handleSubmit={handleSubmit}
-    >
-    <Input
-        // field={nameField}
-        labelName="Имя"
-        minlength="2"
-        inputName="name"
-        type="text"
-        required="true"
-    />
-    <Input
-        // field={emailField}
-        labelName="E-mail"
-        minlength="2"
-        inputName="email"
-        type="text"
-        required="true"
-    />
-    <Input
-        // field={passwordField}
-        labelName="Пароль"
-        minlength="2"
-        inputName="password"
-        type="password"
-        required="true"
-    />
-    </AuthorizationForm>
+      >
+        <Input
+          field={nameField}
+          labelName="Имя"
+          minlength="2"
+          inputName="name"
+          type="text"
+          required="true"
+        />
+        <Input
+          field={emailField}
+          labelName="E-mail"
+          minlength="2"
+          inputName="email"
+          type="text"
+          required="true"
+        />
+        <Input
+          field={passwordField}
+          labelName="Пароль"
+          minlength="2"
+          inputName="password"
+          type="password"
+          required="true"
+        />
+      </AuthorizationForm>
     </Authorization>
   );
 }

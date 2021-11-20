@@ -27,3 +27,4 @@ https://movies.poisk.nomoredomains.rocks
 ### Запуск проекта осуществляется по команде:
 
     npm run start
+
